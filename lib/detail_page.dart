@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_app/receipt_page.dart';
+import 'receipt_page.dart';
 
 class DetailPage extends StatefulWidget {
   final Map<String, dynamic> selectedItem;
