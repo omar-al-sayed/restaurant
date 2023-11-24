@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'detail_page.dart';
 class Restaurant extends StatefulWidget {
   const Restaurant({Key? key}) : super(key: key);
 
@@ -41,7 +41,25 @@ class _RestaurantState extends State<Restaurant> {
                 });
               },
             ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Find the selected item's details
+                var selectedMenuItem = menuItems.firstWhere(
+                      (item) => item['name'] == selectedItem,
+                  orElse: () => {'name': '', 'price': 0, 'image': ''},
+                );
 
+                // Navigate to another page with detailed information
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => DetailPage(selectedMenuItem),
+                  ),
+                );
+              },
+              child: Text('View Details'),
+            ),
             SizedBox(height: 20),
             Expanded(
               //list view
